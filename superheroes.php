@@ -62,7 +62,10 @@ $superheroes = [
       "biography" => "Notably powerful, Wanda Maximoff has fought both against and with the Avengers, attempting to hone her abilities and do what she believes is right to help the world.",
   ], 
 ];
-
+if(isset($_GET['action']) && $_GET['action'] === 'getSuperheroes') {
+    echo json_encode($superheroes);
+    exit;
+}
 ?>
 
 <ul>
