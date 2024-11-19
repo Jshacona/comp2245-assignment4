@@ -1,88 +1,75 @@
-<?php
-
-$superheroes = [
-    [
-        "id" => 1,
-        "name" => "Steve Rogers",
-        "alias" => "Captain America",
-        "biography" => "Recipient of the Super-Soldier serum, World War II hero Steve Rogers fights for American ideals as one of the world’s mightiest heroes and the leader of the Avengers.",
-    ],
-    [
-        "id" => 2,
-        "name" => "Tony Stark",
-        "alias" => "Ironman",
-        "biography" => "Genius. Billionaire. Playboy. Philanthropist. Tony Stark's confidence is only matched by his high-flying abilities as the hero called Iron Man.",
-    ],
-    [
-        "id" => 3,
-        "name" => "Peter Parker",
-        "alias" => "Spiderman",
-        "biography" => "Bitten by a radioactive spider, Peter Parker’s arachnid abilities give him amazing powers he uses to help others, while his personal life continues to offer plenty of obstacles.",
-    ],
-    [
-        "id" => 4,
-        "name" => "Carol Danvers",
-        "alias" => "Captain Marvel",
-        "biography" => "Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.",
-    ],
-    [
-        "id" => 5,
-        "name" => "Natasha Romanov",
-        "alias" => "Black Widow",
-        "biography" => "Despite super spy Natasha Romanoff’s checkered past, she’s become one of S.H.I.E.L.D.’s most deadly assassins and a frequent member of the Avengers.",
-    ],
-    [
-        "id" => 6,
-        "name" => "Bruce Banner",
-        "alias" => "Hulk",
-        "biography" => "Dr. Bruce Banner lives a life caught between the soft-spoken scientist he’s always been and the uncontrollable green monster powered by his rage.",
-    ],
-    [
-        "id" => 7,
-        "name" => "Clint Barton",
-        "alias" => "Hawkeye",
-        "biography" => "A master marksman and longtime friend of Black Widow, Clint Barton serves as the Avengers’ amazing archer.",
-    ],
-    [
-        "id" => 8,
-        "name" => "T'challa",
-        "alias" => "Black Panther",
-        "biography" => "T’Challa is the king of the secretive and highly advanced African nation of Wakanda - as well as the powerful warrior known as the Black Panther.",
-    ],
-    [
-        "id" => 9,
-        "name" => "Thor Odinson",
-        "alias" => "Thor",
-        "biography" => "The son of Odin uses his mighty abilities as the God of Thunder to protect his home Asgard and planet Earth alike.",
-    ],
-    [
-        "id" => 10,
-        "name" => "Wanda Maximoff",
-        "alias" => "Scarlett Witch",
-        "biography" => "Notably powerful, Wanda Maximoff has fought both against and with the Avengers, attempting to hone her abilities and do what she believes is right to help the world.",
-    ],
-];
-
-$query = isset($_GET['query']) ? trim($_GET['query']) : '';
-
-if ($query === '') {
-    // Return all superhero aliases as a simple list for the alert
-    foreach ($superheroes as $superhero) {
-        echo $superhero['alias'] . "\n";
-    }
-} else {
-    $found = false;
-    // Search for the superhero by alias or name
-    foreach ($superheroes as $superhero) {
-        if (strcasecmp($superhero['alias'], $query) === 0 || strcasecmp($superhero['name'], $query) === 0) {
-            $found = true;
-            // Return superhero details if found
-            echo $superhero['alias'] . " - " . $superhero['name'] . ": " . $superhero['biography'];
-            break;
-        }
-    }
-    if (!$found) {
-        echo "Superhero not found.";
-    }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
-?>
+
+
+.header {
+    background-color: #337ab7;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+
+form label {
+    font-size: 14px;
+    color: #555;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: white;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #c9302c;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
