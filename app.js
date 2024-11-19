@@ -1,8 +1,7 @@
 document.getElementById("searchButton").addEventListener("click", function () {
     const query = document.getElementById("searchField").value.trim();
+
     const xhr = new XMLHttpRequest();
-
-
     xhr.open("GET", `superheroes.php?query=${encodeURIComponent(query)}`, true);
 
     xhr.onload = function () {
